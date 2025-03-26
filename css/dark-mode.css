@@ -1,40 +1,71 @@
 /* 
-* Dark Mode Stylesheet
-* Author: Your Name
-* Version: 1.0
+* Portfolio Dark Mode Stylesheet
+* Author: Haseeb Amjad
+* Version: 2.0
 */
 
-/* Dark Mode Variables */
-.dark-mode {
-  /* Colors - Dark Mode */
-  --color-background: #111827;
-  --color-foreground: #f9fafb;
-  --color-primary: #818cf8;
-  --color-primary-light: #a5b4fc;
-  --color-primary-dark: #6366f1;
-  --color-secondary: #22d3ee;
-  --color-accent: #a78bfa;
-  --color-gray-50: #1f2937;
-  --color-gray-100: #1f2937;
-  --color-gray-200: #374151;
-  --color-gray-300: #4b5563;
-  --color-gray-400: #6b7280;
-  --color-gray-500: #9ca3af;
-  --color-gray-600: #d1d5db;
-  --color-gray-700: #e5e7eb;
-  --color-gray-800: #f3f4f6;
-  --color-gray-900: #f9fafb;
+/*--------------------------------------------------------------
+# DARK MODE VARIABLES
+--------------------------------------------------------------*/
+:root {
+  /* Dark Mode Colors */
+  --dark-color-background: #0f172a;
+  --dark-color-foreground: #f8fafc;
+  --dark-color-primary: #818cf8;
+  --dark-color-primary-light: #a5b4fc;
+  --dark-color-primary-dark: #4f46e5;
+  --dark-color-secondary: #22d3ee;
+  --dark-color-accent: #a78bfa;
+  --dark-color-gray-50: #1e293b;
+  --dark-color-gray-100: #334155;
+  --dark-color-gray-200: #475569;
+  --dark-color-gray-300: #64748b;
+  --dark-color-gray-400: #94a3b8;
+  --dark-color-gray-500: #cbd5e1;
+  --dark-color-gray-600: #e2e8f0;
+  --dark-color-gray-700: #f1f5f9;
+  --dark-color-gray-800: #f8fafc;
+  --dark-color-gray-900: #ffffff;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  /* Code Colors - Dark Mode */
+  --dark-color-code-background: #112240;
+  --dark-color-code-text: #e2e8f0;
+}
+
+/*--------------------------------------------------------------
+# DARK MODE STYLES
+--------------------------------------------------------------*/
+.dark-mode {
+  /* Base Colors */
+  --color-background: var(--dark-color-background);
+  --color-foreground: var(--dark-color-foreground);
+  --color-primary: var(--dark-color-primary);
+  --color-primary-light: var(--dark-color-primary-light);
+  --color-primary-dark: var(--dark-color-primary-dark);
+  --color-secondary: var(--dark-color-secondary);
+  --color-accent: var(--dark-color-accent);
+  
+  /* Gray Shades */
+  --color-gray-50: var(--dark-color-gray-50);
+  --color-gray-100: var(--dark-color-gray-100);
+  --color-gray-200: var(--dark-color-gray-200);
+  --color-gray-300: var(--dark-color-gray-300);
+  --color-gray-400: var(--dark-color-gray-400);
+  --color-gray-500: var(--dark-color-gray-500);
+  --color-gray-600: var(--dark-color-gray-600);
+  --color-gray-700: var(--dark-color-gray-700);
+  --color-gray-800: var(--dark-color-gray-800);
+  --color-gray-900: var(--dark-color-gray-900);
+  
+  /* Code Colors */
+  --color-code-background: var(--dark-color-code-background);
+  --color-code-text: var(--dark-color-code-text);
 }
 
 /* Dark Mode Specific Styles */
 .dark-mode .header.scrolled {
-  background-color: rgba(31, 41, 55, 0.95);
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
 }
 
 .dark-mode .theme-toggle .fa-moon {
@@ -45,87 +76,58 @@
   display: block;
 }
 
-.dark-mode .hero-background .shape {
-  opacity: 0.2;
+.dark-mode .project-placeholder {
+  background: linear-gradient(135deg, #4f46e5, #22d3ee);
 }
 
-.dark-mode .btn-outline {
-  border-color: var(--color-gray-600);
-  color: var(--color-foreground);
+.dark-mode .shape-1 {
+  background-color: var(--dark-color-primary);
 }
 
-.dark-mode .filter-btn {
-  background-color: var(--color-gray-100);
-  color: var(--color-gray-500);
+.dark-mode .shape-2 {
+  background-color: var(--dark-color-secondary);
 }
 
-.dark-mode .filter-btn:hover {
-  background-color: var(--color-gray-200);
-  color: var(--color-gray-400);
-}
-
-.dark-mode .project-card {
-  background-color: var(--color-gray-50);
-}
-
-.dark-mode .project-link {
-  background-color: var(--color-gray-800);
-  color: var(--color-gray-100);
-}
-
-.dark-mode .skills-category,
-.dark-mode .certification-item,
-.dark-mode .contact-form-container {
-  background-color: var(--color-gray-50);
-}
-
-.dark-mode .contact-card {
-  background-color: var(--color-gray-100);
-}
-
-.dark-mode .form-group input,
-.dark-mode .form-group textarea {
-  background-color: var(--color-gray-100);
-  border-color: var(--color-gray-300);
-  color: var(--color-foreground);
-}
-
-.dark-mode .testimonial-content {
-  background-color: var(--color-gray-50);
-}
-
-.dark-mode .author-image {
-  border-color: var(--color-gray-100);
-}
-
-.dark-mode .tech-tag {
-  background-color: var(--color-gray-200);
-  color: var(--color-gray-500);
-}
-
-.dark-mode .certification-icon {
-  background-color: var(--color-gray-200);
+.dark-mode .shape-3 {
+  background-color: var(--dark-color-accent);
 }
 
 .dark-mode .footer {
-  background-color: #0f172a;
+  background-color: #020617;
 }
 
-.dark-mode .footer-bottom {
-  border-top-color: #1e293b;
+.dark-mode .certification-icon,
+.dark-mode .contact-icon,
+.dark-mode .social-link {
+  background-color: var(--dark-color-gray-100);
 }
 
-/* Preloader in Dark Mode */
-.dark-mode .spinner {
-  border-color: rgba(129, 140, 248, 0.2);
-  border-top-color: var(--color-primary);
+.dark-mode .form-group input, 
+.dark-mode .form-group textarea {
+  background-color: var(--dark-color-gray-50);
+  border-color: var(--dark-color-gray-200);
 }
 
-/* Custom Cursor in Dark Mode */
-.dark-mode .cursor {
-  background-color: var(--color-primary);
+.dark-mode .form-group input:focus, 
+.dark-mode .form-group textarea:focus {
+  border-color: var(--dark-color-primary);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
 }
 
-.dark-mode .cursor-follower {
-  border-color: var(--color-primary);
+/* Handle Scrollbar in Dark Mode */
+.dark-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-mode::-webkit-scrollbar-track {
+  background: var(--dark-color-gray-50);
+}
+
+.dark-mode::-webkit-scrollbar-thumb {
+  background: var(--dark-color-gray-200);
+  border-radius: 5px;
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-color-gray-300);
 }
