@@ -1,0 +1,131 @@
+/* 
+* Dark Mode Stylesheet
+* Author: Your Name
+* Version: 1.0
+*/
+
+/* Dark Mode Variables */
+.dark-mode {
+  /* Colors - Dark Mode */
+  --color-background: #111827;
+  --color-foreground: #f9fafb;
+  --color-primary: #818cf8;
+  --color-primary-light: #a5b4fc;
+  --color-primary-dark: #6366f1;
+  --color-secondary: #22d3ee;
+  --color-accent: #a78bfa;
+  --color-gray-50: #1f2937;
+  --color-gray-100: #1f2937;
+  --color-gray-200: #374151;
+  --color-gray-300: #4b5563;
+  --color-gray-400: #6b7280;
+  --color-gray-500: #9ca3af;
+  --color-gray-600: #d1d5db;
+  --color-gray-700: #e5e7eb;
+  --color-gray-800: #f3f4f6;
+  --color-gray-900: #f9fafb;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Specific Styles */
+.dark-mode .header.scrolled {
+  background-color: rgba(31, 41, 55, 0.95);
+}
+
+.dark-mode .theme-toggle .fa-moon {
+  display: none;
+}
+
+.dark-mode .theme-toggle .fa-sun {
+  display: block;
+}
+
+.dark-mode .hero-background .shape {
+  opacity: 0.2;
+}
+
+.dark-mode .btn-outline {
+  border-color: var(--color-gray-600);
+  color: var(--color-foreground);
+}
+
+.dark-mode .filter-btn {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-500);
+}
+
+.dark-mode .filter-btn:hover {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-400);
+}
+
+.dark-mode .project-card {
+  background-color: var(--color-gray-50);
+}
+
+.dark-mode .project-link {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+}
+
+.dark-mode .skills-category,
+.dark-mode .certification-item,
+.dark-mode .contact-form-container {
+  background-color: var(--color-gray-50);
+}
+
+.dark-mode .contact-card {
+  background-color: var(--color-gray-100);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-300);
+  color: var(--color-foreground);
+}
+
+.dark-mode .testimonial-content {
+  background-color: var(--color-gray-50);
+}
+
+.dark-mode .author-image {
+  border-color: var(--color-gray-100);
+}
+
+.dark-mode .tech-tag {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-500);
+}
+
+.dark-mode .certification-icon {
+  background-color: var(--color-gray-200);
+}
+
+.dark-mode .footer {
+  background-color: #0f172a;
+}
+
+.dark-mode .footer-bottom {
+  border-top-color: #1e293b;
+}
+
+/* Preloader in Dark Mode */
+.dark-mode .spinner {
+  border-color: rgba(129, 140, 248, 0.2);
+  border-top-color: var(--color-primary);
+}
+
+/* Custom Cursor in Dark Mode */
+.dark-mode .cursor {
+  background-color: var(--color-primary);
+}
+
+.dark-mode .cursor-follower {
+  border-color: var(--color-primary);
+}
