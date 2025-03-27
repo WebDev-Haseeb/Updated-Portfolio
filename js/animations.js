@@ -176,6 +176,13 @@ function initAnimations() {
  * Initialize custom cursor
  */
 function initCustomCursor() {
+  // Only initialize custom cursor on screens larger than 992px
+  if (window.innerWidth <= 992) {
+    // Make sure the default cursor is shown on smaller screens
+    document.body.style.cursor = 'auto';
+    return;
+  }
+  
   const cursor = document.querySelector('.cursor');
   const cursorFollower = document.querySelector('.cursor-follower');
   

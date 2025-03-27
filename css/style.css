@@ -1579,6 +1579,12 @@ section {
   .scroll-indicator {
     display: none;
   }
+  
+  /* Hide custom cursor on smaller screens */
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1671,10 +1677,17 @@ section {
 @media (max-width: 576px) {
   .hero-section {
     padding: 5rem 0 2rem;
+    min-height: 80vh; /* Adjust minimum height for better mobile view */
   }
   
   .headline {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subheading {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
   
   .section-title {
@@ -1699,28 +1712,115 @@ section {
   .code-container {
     max-width: 100%;
     transform: rotate(0deg);
+    margin: 0 auto; /* Center the code container */
   }
   
   .scroll-indicator {
     display: none;
   }
+  
+  .hero-image {
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 460px) {
   .hero-section {
     padding: 4.5rem 0 1.5rem;
   }
 
   .headline {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
   .subheading {
-    font-size: 0.95rem;
+    font-size: 0.925rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-image {
+    max-width: 90%;
+  }
+  
+  .code-container {
+    max-width: 100%;
+    padding: 0.85rem;
+    padding-bottom: 0;
   }
   
   .code-snippet {
     font-size: 0.8rem;
+  }
+  
+  .hero-cta .btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* @media (max-width: 380px) {
+  .hero-section {
+    padding: 4rem 0 1rem;
+    min-height: auto;
+  }
+
+  .headline {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subheading {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .code-snippet {
+    font-size: 0.75rem;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+  }
+  
+  .code-container {
+    padding: 0.75rem;
+    padding-bottom: 0;
+  }
+} */
+
+@media (max-width: 380px) {
+  .hero-section {
+    padding: 4rem 0 1rem;
+    /* min-height: auto; */
+  }
+
+  .headline {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subheading {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .code-snippet {
+    font-size: 0.75rem;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+  }
+  
+  .code-container {
+    padding: 0.75rem;
+    padding-bottom: 0;
   }
 }
 
