@@ -76,21 +76,66 @@ function initAnimations() {
   const navMenu = document.querySelector('.nav-menu');
   
   if (mobileMenuToggle && navMenu) {
+    // Create menu overlay to close when clicking outside
+    let menuOverlay = document.querySelector('.menu-overlay');
+    
+    if (!menuOverlay) {
+      menuOverlay = document.createElement('div');
+      menuOverlay.className = 'menu-overlay';
+      document.body.appendChild(menuOverlay);
+    }
+    
+    // Toggle menu open/close
     mobileMenuToggle.addEventListener('click', () => {
-      mobileMenuToggle.classList.toggle('active');
-      navMenu.classList.toggle('show');
-      document.body.classList.toggle('no-scroll');
+      toggleMobileMenu();
+    });
+    
+    // Close mobile menu when clicking on the overlay
+    menuOverlay.addEventListener('click', () => {
+      closeMobileMenu();
     });
     
     // Close mobile menu when clicking on a nav link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('show');
-        document.body.classList.remove('no-scroll');
+        closeMobileMenu();
       });
     });
+    
+    // Close mobile menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    });
+    
+    // Helper function to toggle menu
+    function toggleMobileMenu() {
+      const isOpen = navMenu.classList.contains('show');
+      
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+    
+    // Helper function to open menu
+    function openMobileMenu() {
+      mobileMenuToggle.classList.add('active');
+      navMenu.classList.add('show');
+      menuOverlay.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+    
+    // Helper function to close menu
+    function closeMobileMenu() {
+      mobileMenuToggle.classList.remove('active');
+      navMenu.classList.remove('show');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
   }
   
   // Active nav link on scroll
