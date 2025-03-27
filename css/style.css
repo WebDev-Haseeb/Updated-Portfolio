@@ -93,6 +93,17 @@
   background: var(--dark-color-gray-300);
 }
 
+/* Handle Content Selection  */
+::selection {
+  background: var(--color-primary-dark);
+  color: var(--color-background);
+}
+
+.dark-mode ::selection {
+  background: var(--dark-color-primary-light);
+  color: var(--dark-color-background);
+}
+
 /*--------------------------------------------------------------
 # GLOBAL STYLES
 --------------------------------------------------------------*/
