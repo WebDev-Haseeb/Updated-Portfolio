@@ -158,47 +158,6 @@ function initAnimations() {
     });
   }
   
-  // Initialize project filtering
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectItems = document.querySelectorAll('.project-card');
-  
-  if (filterBtns.length > 0 && projectItems.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        // Filter projects
-        projectItems.forEach(item => {
-          if (filterValue === 'all') {
-            item.style.display = 'block';
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            }, 200);
-          } else if (item.classList.contains(filterValue)) {
-            item.style.display = 'block';
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            }, 200);
-          } else {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-              item.style.display = 'none';
-            }, 300);
-          }
-        });
-      });
-    });
-  }
-  
   // Animate skill bars when in viewport
   const skillsSection = document.querySelector('.skills-section');
   if (skillsSection) {

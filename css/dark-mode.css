@@ -113,21 +113,3 @@
   border-color: var(--dark-color-primary);
   box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
 }
-
-/* Handle Scrollbar in Dark Mode
-.dark-mode::-webkit-scrollbar {
-  width: 10px;
-}
-
-.dark-mode::-webkit-scrollbar-track {
-  background: var(--dark-color-gray-50);
-}
-
-.dark-mode::-webkit-scrollbar-thumb {
-  background: var(--dark-color-gray-200);
-  border-radius: 5px;
-}
-
-.dark-mode::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-color-gray-300);
-} */
