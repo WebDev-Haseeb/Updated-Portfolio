@@ -118,43 +118,84 @@ function initContactForm() {
         clearFormError(messageInput);
       }
 
-      // Submit form data (you can replace this with your own form handling code)
-      const formData = new FormData(this);
+      // Prepare form data for EmailJS - ensure template parameters match exactly
+      const templateParams = {
+        from_name: nameInput.value,
+        reply_to: emailInput.value, 
+        subject: subjectInput.value,
+        message: messageInput.value,
+        // Also include the parameters with names matching your template variables
+        name: nameInput.value,
+        email: emailInput.value
+      };
+
       const formButton = this.querySelector('button[type="submit"]');
       const formStatus = document.createElement('div');
       formStatus.className = 'form-status';
 
-      // Simulate form submission (replace with actual form submission)
+      // Disable button and show loading state
       formButton.disabled = true;
       formButton.innerHTML = '<span class="spinner"></span> Sending...';
 
-      setTimeout(() => {
-        // Simulate successful submission (replace with actual API call)
-        formStatus.className = 'form-status success';
-        formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-        contactForm.reset();
+      // Send email using EmailJS with correct service and template IDs
+      emailjs.send('service_fkdnb1d', 'template_as7niws', templateParams)
+        .then(
+          function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Show success message
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+            contactForm.reset();
 
-        // Reset button
-        formButton.disabled = false;
-        const newIcon = document.createElement('i');
-        newIcon.className = 'fas fa-paper-plane';
+            // Reset button
+            formButton.disabled = false;
+            const newIcon = document.createElement('i');
+            newIcon.className = 'fas fa-paper-plane';
 
-        formButton.innerHTML = 'Send Message';
-        formButton.appendChild(newIcon);
-        
+            formButton.innerHTML = 'Send Message';
+            formButton.appendChild(newIcon);
+            
+            // Append status message
+            const existingStatus = contactForm.querySelector('.form-status');
+            if (existingStatus) {
+              existingStatus.remove();
+            }
+            contactForm.appendChild(formStatus);
 
-        // Append status message
-        const existingStatus = contactForm.querySelector('.form-status');
-        if (existingStatus) {
-          existingStatus.remove();
-        }
-        contactForm.appendChild(formStatus);
+            // Remove status message after 5 seconds
+            setTimeout(() => {
+              formStatus.remove();
+            }, 5000);
+          },
+          function(error) {
+            console.log('FAILED...', error);
+            
+            // Show more detailed error message
+            formStatus.className = 'form-status error';
+            formStatus.textContent = `Failed to send message: ${error.text || 'Please try again later'}`;
+            
+            // Reset button
+            formButton.disabled = false;
+            const newIcon = document.createElement('i');
+            newIcon.className = 'fas fa-paper-plane';
 
-        // Remove status message after 5 seconds
-        setTimeout(() => {
-          formStatus.remove();
-        }, 5000);
-      }, 1500);
+            formButton.innerHTML = 'Send Message';
+            formButton.appendChild(newIcon);
+            
+            // Append status message
+            const existingStatus = contactForm.querySelector('.form-status');
+            if (existingStatus) {
+              existingStatus.remove();
+            }
+            contactForm.appendChild(formStatus);
+            
+            // Remove status message after 5 seconds
+            setTimeout(() => {
+              formStatus.remove();
+            }, 5000);
+          }
+        );
     });
 
     // Real-time validation for inputs
