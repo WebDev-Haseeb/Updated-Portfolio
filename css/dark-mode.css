@@ -114,7 +114,7 @@
   box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
 }
 
-/* Handle Scrollbar in Dark Mode */
+/* Handle Scrollbar in Dark Mode
 .dark-mode::-webkit-scrollbar {
   width: 10px;
 }
@@ -130,4 +130,4 @@
 
 .dark-mode::-webkit-scrollbar-thumb:hover {
   background: var(--dark-color-gray-300);
-}
+} */
