@@ -1436,7 +1436,7 @@ body.no-scroll {
   border-radius: var(--border-radius-md);
   background-color: var(--color-background);
   transition: all var(--transition-fast);
-  font-size: 1rem;
+  font-size: 0.8rem;
   width: 100%;
   color: var(--color-foreground);
 }
@@ -1609,6 +1609,18 @@ body.no-scroll {
   background-color: rgba(239, 68, 68, 0.1);
   color: #ef4444;
   border-left: 4px solid #ef4444;
+}
+
+/* Form error styles for dark mode */
+.dark-mode .form-group input.error,
+.dark-mode .form-group textarea.error {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.dark-mode .form-group input.error:focus,
+.dark-mode .form-group textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
 }
 
 @keyframes fadeIn {
