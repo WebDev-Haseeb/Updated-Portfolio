@@ -1638,25 +1638,32 @@ body.no-scroll {
 @media (max-width: 992px) {
   .hero-section {
     padding: 7rem 0 3rem;
+    min-height: auto; /* Allow section to resize based on content */
   }
   
   .hero-content {
     flex-direction: column;
     text-align: center;
+    align-items: center; /* Center content horizontally */
   }
   
   .hero-text {
     order: 2;
     max-width: 600px;
+    width: 100%; /* Ensure full width on mobile */
   }
   
   .hero-image {
     order: 1;
     margin-bottom: 2rem;
+    width: 100%; /* Full width container */
+    display: flex;
+    justify-content: center; /* Center the code container */
   }
   
   .hero-cta {
     justify-content: center;
+    width: 100%; /* Full width for better alignment */
   }
   
   .subheading {
@@ -1666,6 +1673,8 @@ body.no-scroll {
   
   .code-container {
     transform: rotate(0deg);
+    max-width: 450px; /* Keep reasonable width */
+    width: 100%;
   }
   
   .about-content {
@@ -1690,6 +1699,12 @@ body.no-scroll {
   .cursor-follower {
     display: none;
   }
+  
+  /* Make sure background shapes don't cause horizontal overflow */
+  .shape {
+    max-width: 50%;
+    max-height: 50vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1707,10 +1722,18 @@ body.no-scroll {
   
   .hero-image {
     width: 100%;
+    max-width: 450px; /* Limit width on medium screens */
   }
   
   .code-container {
-    max-width: 90%;
+    max-width: 100%; /* Allow container to fill parent */
+  }
+  
+  /* Ensure code doesn't overflow */
+  .code-snippet {
+    overflow-x: auto;
+    white-space: pre-wrap; /* Allow wrapping for better mobile experience */
+    word-break: break-word;
   }
   
   .nav-menu {
@@ -1780,12 +1803,20 @@ body.no-scroll {
     text-align: center;
     gap: 1.5rem;
   }
+  
+  /* Adjust projects grid for better mobile display */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 576px) {
   .hero-section {
     padding: 5rem 0 2rem;
-    min-height: 80vh; /* Adjust minimum height for better mobile view */
+    min-height: auto; /* Let content determine height */
   }
   
   .headline {
@@ -1820,7 +1851,7 @@ body.no-scroll {
   .code-container {
     max-width: 100%;
     transform: rotate(0deg);
-    margin: 0 auto; /* Center the code container */
+    margin: 2rem auto; /* Center the code container */
   }
   
   .scroll-indicator {
@@ -1830,6 +1861,24 @@ body.no-scroll {
   .hero-image {
     max-width: 100%;
     margin: 0 auto;
+  }
+  
+  /* Ensure skills display properly */
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Ensure certifications display properly */
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Header logo adjustments */
+  .logo-text {
+    font-size: 1.5rem;
   }
 }
 
@@ -1849,7 +1898,7 @@ body.no-scroll {
   }
   
   .hero-image {
-    max-width: 90%;
+    max-width: 100%;
   }
   
   .code-container {
@@ -1868,44 +1917,31 @@ body.no-scroll {
   }
   
   .section-title {
-    font-size: 2.25rem;
+    font-size: 1.85rem;
+  }
+  
+  /* Adjust skills grid to single column for very small screens */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ensure the tech icons are visible on small screens */
+  .tech-icon-container {
+    gap: 1rem;
+  }
+  
+  .tech-icon {
+    font-size: 2.5rem;
   }
 }
 
-/* @media (max-width: 380px) {
-  .hero-section {
-    padding: 4rem 0 1rem;
-    min-height: auto;
-  }
-
-  .headline {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .subheading {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .code-snippet {
-    font-size: 0.75rem;
-  }
-  
-  .hero-image {
-    max-width: 100%;
-  }
-  
-  .code-container {
-    padding: 0.75rem;
-    padding-bottom: 0;
-  }
-} */
-
 @media (max-width: 380px) {
+  .logo-text {
+    font-size: 1.25rem;
+  }
+
   .hero-section {
     padding: 4rem 0 1rem;
-    /* min-height: auto; */
   }
 
   .headline {
@@ -1929,6 +1965,29 @@ body.no-scroll {
   .code-container {
     padding: 0.75rem;
     padding-bottom: 0;
+  }
+  
+  /* Fix "Get in Touch" section for very small screens */
+  .contact-card {
+    padding: 1rem;
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .contact-form-container {
+    padding: 1.25rem;
+  }
+  
+  /* Adjust the back-to-top button */
+  #back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
   }
 }
 
