@@ -400,6 +400,11 @@ section {
   gap: 0.5rem;
 }
 
+
+.logo-text:hover {
+  color: var(--color-foreground);
+}
+
 .logo-img {
   height: 32px;
   width: auto;
