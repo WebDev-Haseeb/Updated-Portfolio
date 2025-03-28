@@ -47,6 +47,7 @@ function initTheme() {
  */
 function initSmoothScroll() {
   const links = document.querySelectorAll('a[href^="#"]');
+  const isMobile = window.innerWidth <= 768;
 
   links.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -59,10 +60,12 @@ function initSmoothScroll() {
 
       const targetElement = document.querySelector(href);
       if (targetElement) {
-        const headerOffset = 50;
+        // Calculate proper header offset based on screen size
+        const headerOffset = isMobile ? 70 : 50;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
+        // Smooth scroll to target
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -121,7 +124,7 @@ function initContactForm() {
       // Prepare form data for EmailJS - ensure template parameters match exactly
       const templateParams = {
         from_name: nameInput.value,
-        reply_to: emailInput.value, 
+        reply_to: emailInput.value,
         subject: subjectInput.value,
         message: messageInput.value,
         // Also include the parameters with names matching your template variables
@@ -140,9 +143,9 @@ function initContactForm() {
       // Send email using EmailJS with correct service and template IDs
       emailjs.send('service_fkdnb1d', 'template_as7niws', templateParams)
         .then(
-          function(response) {
+          function (response) {
             console.log('SUCCESS!', response.status, response.text);
-            
+
             // Show success message
             formStatus.className = 'form-status success';
             formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
@@ -155,7 +158,7 @@ function initContactForm() {
 
             formButton.innerHTML = 'Send Message';
             formButton.appendChild(newIcon);
-            
+
             // Append status message
             const existingStatus = contactForm.querySelector('.form-status');
             if (existingStatus) {
@@ -168,13 +171,13 @@ function initContactForm() {
               formStatus.remove();
             }, 5000);
           },
-          function(error) {
+          function (error) {
             console.log('FAILED...', error);
-            
+
             // Show more detailed error message
             formStatus.className = 'form-status error';
             formStatus.textContent = `Failed to send message: ${error.text || 'Please try again later'}`;
-            
+
             // Reset button
             formButton.disabled = false;
             const newIcon = document.createElement('i');
@@ -182,14 +185,14 @@ function initContactForm() {
 
             formButton.innerHTML = 'Send Message';
             formButton.appendChild(newIcon);
-            
+
             // Append status message
             const existingStatus = contactForm.querySelector('.form-status');
             if (existingStatus) {
               existingStatus.remove();
             }
             contactForm.appendChild(formStatus);
-            
+
             // Remove status message after 5 seconds
             setTimeout(() => {
               formStatus.remove();

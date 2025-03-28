@@ -552,7 +552,7 @@ body.no-scroll {
   margin-bottom: 1.5rem;
   transform: translateY(20px);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.3s;
+  /* animation: fadeInUp 0.8s ease forwards 0.3s; */
 }
 
 .subheading {
@@ -562,7 +562,7 @@ body.no-scroll {
   max-width: 540px;
   transform: translateY(20px);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.5s;
+  /* animation: fadeInUp 0.8s ease forwards 0.5s; */
 }
 
 .hero-cta {
@@ -570,7 +570,7 @@ body.no-scroll {
   gap: 1rem;
   transform: translateY(20px);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.7s;
+  /* animation: fadeInUp 0.8s ease forwards 0.7s; */
   flex-wrap: wrap;
 }
 
@@ -580,7 +580,7 @@ body.no-scroll {
   justify-content: center;
   transform: translateY(20px);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.9s;
+  /* animation: fadeInUp 0.8s ease forwards 0.9s; */
   max-width: 500px;
 }
 

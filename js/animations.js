@@ -21,6 +21,15 @@ function initAnimations() {
       preloader.classList.add('hide');
       // Enable scrolling once loaded
       document.body.style.overflow = 'auto';
+      
+      // Ensure hero section is fully visible
+      const heroElements = document.querySelectorAll('#home .headline, #home .subheading, #home .hero-cta, #home .hero-image');
+      heroElements.forEach(el => {
+        if (el) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
     }, 1000);
   }
   
@@ -233,15 +242,28 @@ function initScrollReveal() {
     return;
   }
   
-  // Configure ScrollReveal
+  // Check if mobile device for different settings
+  const isMobile = window.innerWidth <= 768;
+  
+  // Configure ScrollReveal - Skip hero section
   const sr = ScrollReveal({
-    distance: '60px',
-    duration: 1200,
+    distance: isMobile ? '30px' : '60px',
+    duration: isMobile ? 800 : 1200,
     easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-    reset: false
+    reset: false,
+    mobile: true
   });
   
-  // Reveal animations for different elements
+  // Make hero section immediately visible without animations
+  document.querySelectorAll('#home .headline, #home .subheading, #home .hero-cta, #home .hero-image').forEach(el => {
+    if (el) {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      el.style.animation = 'none';
+    }
+  });
+  
+  // Only reveal sections after the hero
   sr.reveal('.section-header', { 
     origin: 'top',
     delay: 100
@@ -252,6 +274,7 @@ function initScrollReveal() {
     delay: 200
   });
   
+  // Rest of your reveal statements remain unchanged
   sr.reveal('.about-image', { 
     origin: 'right',
     delay: 300
