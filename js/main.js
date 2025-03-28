@@ -59,7 +59,7 @@ function initSmoothScroll() {
 
       const targetElement = document.querySelector(href);
       if (targetElement) {
-        const headerOffset = 0;
+        const headerOffset = 50;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
